@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Loris Maracao Workouts Log</title>
+  <title>Loris Rocchi Workouts Log</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 15px; }
-    h1 { color: #2d7d46; }
+        h1 {
+      color: transparent;
+      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      background-clip: text;
+      border-bottom: 4px solid;
+      border-image-slice: 1;
+      border-width: 4px;
+      border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      padding-bottom: 6px;
+    }
     label, select, input { font-size: 1em; }
     table { border-collapse: collapse; width: 100%; margin-top: 10px; }
     th, td { border: 1px solid #bbb; padding: 6px; text-align: center; }
@@ -18,7 +28,9 @@
 </head>
 <body>
   <div id="mainContent">
-    <h1>Hypertrophy Workout Log</h1>
+    <h1 style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); -webkit-background-clip: text; color: transparent;">
+  🌈🏳️‍🌈 Loris Rocchi Workouts Log 🌈🏳️‍🌈
+</h1>
     <form id="logForm">
       <label>Date: <input type="date" id="date" required></label><br><br>
       <label>Week:
@@ -31,13 +43,13 @@
       </label>
       <label style="margin-left:1em">Day:
         <select id="day" required>
+          <option value="WingA">Winging Session (speed record)</option>
           <option value="PushA">Push A (chest, front delts, triceps)</option>
           <option value="PullA">Pull A (lats, upper back, biceps)</option>
           <option value="LowerA">Lower A (quad dominant)</option>
           <option value="PushB">Push B (chest, side delts, triceps)</option>
           <option value="PullB">Pull B (upper-back thickness, arms)</option>
           <option value="LowerB">Lower B (posterior-chain bias)</option>
-          <option value="WingA">Winging Session (speed record)</option>
         </select>
       </label>
       <button type="button" class="btn" onclick="generateTable()">Show Exercises</button>
@@ -55,6 +67,9 @@
   <script>
     // --- WORKOUT LOGIC ---
     const program = {
+      WingA: [
+        { name: "Speed Record", sets: [1,1,1,1], reps: [""] } // placeholder, no real sets/reps needed here
+      ],
       PushA: [
         { name: "Barbell bench press", sets: [4,4,4,3], reps: ["6-8","6-8","6-8","6-8"] },
         { name: "Incline dumbbell press", sets: [3,3,3,2], reps: ["8-10","8-10","8-10","8-10"] },
@@ -100,9 +115,6 @@
         { name: "Hip thrust", sets: [3,3,3,2], reps: ["10-12","10-12","10-12","10-12"] },
         { name: "Seated leg curl", sets: [3,4,5,2], reps: ["10-12","10-12","10-12","10-12"] },
         { name: "Leg-press calf raise", sets: [4,5,6,3], reps: ["12-15","12-15","12-15","12-15"] },
-      ],
-      WingA: [
-        { name: "Speed Record", sets: [1,1,1,1], reps: [""] } // placeholder, no real sets/reps needed here
       ],
     };
 
